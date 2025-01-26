@@ -1,7 +1,7 @@
 <% layout("/layouts/boilerplate") %>
 <div class="row">
     <div class="col-8 offset-2 mt-3">
-        <h3>Edit your Listing</h3>
+        <h3><%= listing.title %></h3>
         <form
             method="POST"
             action="/listings/<%= listing._id %>?_method=PUT"
@@ -84,4 +84,3 @@
         </form>
     </div>
 </div>
-<script src="/js/script.js"></script>
