@@ -1,51 +1,14 @@
 const express = require("express");
 const app = express();
+const users = require("./routes/user.js");
+const posts = require("./routes/post.js");
 
 app.get("/", (req, res) => {
     res.send("Hi I am root!");
 });
 
-//Users
-//Index
-app.get("/users", (req, res) => {
-    res.send("GET for users");
-});
-
-//Show
-app.get("/users/:id", (req, res) => {
-    res.send("GET for user id");
-});
-
-//Post
-app.post("/users", (req, res) => {
-    res.send("POST for users");
-});
-
-//Delete
-app.delete("/users/:id", (req, res) => {
-    res.send("DELETE for user id");
-});
-
-//Posts
-//Index
-app.get("/posts", (req, res) => {
-    res.send("GET for posts");
-});
-
-//Show
-app.get("/posts/:id", (req, res) => {
-    res.send("GET for post id");
-});
-
-//Post
-app.post("/posts", (req, res) => {
-    res.send("POST for posts");
-});
-
-//Delete
-app.delete("/posts/:id", (req, res) => {
-    res.send("DELETE for post id");
-});
+app.use("/users", users);
+app.use("/posts", posts);
 
 app.listen(3000, () => {
     console.log("Server is listing to 3000");
